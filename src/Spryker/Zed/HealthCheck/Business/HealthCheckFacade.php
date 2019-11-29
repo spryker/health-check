@@ -5,17 +5,16 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Client\HealthCheck;
+namespace Spryker\Zed\HealthCheck\Business;
 
 use Generated\Shared\Transfer\HealthCheckRequestTransfer;
 use Generated\Shared\Transfer\HealthCheckResponseTransfer;
-use Generated\Shared\Transfer\HealthCheckServiceResponseTransfer;
-use Spryker\Client\Kernel\AbstractClient;
+use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 /**
- * @method \Spryker\Client\HealthCheck\HealthCheckFactory getFactory()
+ * @method \Spryker\Zed\HealthCheck\Business\HealthCheckBusinessFactory getFactory()
  */
-class HealthCheckClient extends AbstractClient implements HealthCheckClientInterface
+class HealthCheckFacade extends AbstractFacade implements HealthCheckFacadeInterface
 {
     /**
      * {@inheritDoc}
@@ -29,17 +28,5 @@ class HealthCheckClient extends AbstractClient implements HealthCheckClientInter
     public function executeHealthCheck(HealthCheckRequestTransfer $healthCheckRequestTransfer): HealthCheckResponseTransfer
     {
         return $this->getFactory()->createHealthCheckProcessor()->process($healthCheckRequestTransfer);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @api
-     *
-     * @return \Generated\Shared\Transfer\HealthCheckServiceResponseTransfer
-     */
-    public function executeZedRequestHealthCheck(): HealthCheckServiceResponseTransfer
-    {
-        return $this->getFactory()->createZedRequestHealthCheckIndicator()->executeHealthCheck();
     }
 }

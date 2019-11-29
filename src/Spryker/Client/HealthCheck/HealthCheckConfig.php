@@ -5,9 +5,9 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Zed\HealthCheck;
+namespace Spryker\Client\HealthCheck;
 
-use Spryker\Zed\Kernel\AbstractBundleConfig;
+use Spryker\Client\Kernel\AbstractBundleConfig;
 
 /**
  * @method \Spryker\Shared\HealthCheck\HealthCheckConfig getSharedConfig()
@@ -20,6 +20,14 @@ class HealthCheckConfig extends AbstractBundleConfig
     public function isHealthCheckEnabled(): bool
     {
         return $this->getSharedConfig()->isHealthCheckEnabled();
+    }
+
+    /**
+     * @return int
+     */
+    public function getSuccessHealthCheckStatusCode(): int
+    {
+        return $this->getSharedConfig()->getSuccessHealthCheckStatusCode();
     }
 
     /**
@@ -49,24 +57,16 @@ class HealthCheckConfig extends AbstractBundleConfig
     /**
      * @return string
      */
-    public function getUnavailableHealthCheckStatusMessage(): string
+    public function getSuccessHealthCheckStatusMessage(): string
     {
-        return $this->getSharedConfig()->getUnavailableHealthCheckStatusMessage();
-    }
-
-    /**
-     * @return int
-     */
-    public function getSuccessHealthCheckStatusCode(): int
-    {
-        return $this->getSharedConfig()->getSuccessHealthCheckStatusCode();
+        return $this->getSharedConfig()->getSuccessHealthCheckStatusMessage();
     }
 
     /**
      * @return string
      */
-    public function getSuccessHealthCheckStatusMessage(): string
+    public function getUnavailableHealthCheckStatusMessage(): string
     {
-        return $this->getSharedConfig()->getSuccessHealthCheckStatusMessage();
+        return $this->getSharedConfig()->getUnavailableHealthCheckStatusMessage();
     }
 }
