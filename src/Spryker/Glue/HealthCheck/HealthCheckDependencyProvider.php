@@ -5,26 +5,26 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Client\HealthCheck;
+namespace Spryker\Glue\HealthCheck;
 
-use Spryker\Client\Kernel\AbstractDependencyProvider;
-use Spryker\Client\Kernel\Container;
+use Spryker\Glue\Kernel\AbstractBundleDependencyProvider;
+use Spryker\Glue\Kernel\Container;
 
 /**
- * @method \Spryker\Client\HealthCheck\HealthCheckConfig getConfig()
+ * @method \Spryker\Glue\HealthCheck\HealthCheckConfig getConfig()
  */
-class HealthCheckDependencyProvider extends AbstractDependencyProvider
+class HealthCheckDependencyProvider extends AbstractBundleDependencyProvider
 {
     public const SERVICE_HEALTH_CHECK = 'SERVICE_HEALTH_CHECK';
 
     public const PLUGINS_HEALTH_CHECK = 'PLUGINS_HEALTH_CHECK';
 
     /**
-     * @param \Spryker\Client\Kernel\Container $container
+     * @param \Spryker\Glue\Kernel\Container $container
      *
-     * @return \Spryker\Client\Kernel\Container
+     * @return \Spryker\Glue\Kernel\Container
      */
-    public function provideServiceLayerDependencies(Container $container): Container
+    public function provideDependencies(Container $container): Container
     {
         $container = $this->addHealthCheckService($container);
         $container = $this->addHealthCheckPlugins($container);
@@ -33,9 +33,9 @@ class HealthCheckDependencyProvider extends AbstractDependencyProvider
     }
 
     /**
-     * @param \Spryker\Client\Kernel\Container $container
+     * @param \Spryker\Glue\Kernel\Container $container
      *
-     * @return \Spryker\Client\Kernel\Container
+     * @return \Spryker\Glue\Kernel\Container
      */
     protected function addHealthCheckService(Container $container): Container
     {
@@ -47,9 +47,9 @@ class HealthCheckDependencyProvider extends AbstractDependencyProvider
     }
 
     /**
-     * @param \Spryker\Client\Kernel\Container $container
+     * @param \Spryker\Glue\Kernel\Container $container
      *
-     * @return \Spryker\Client\Kernel\Container
+     * @return \Spryker\Glue\Kernel\Container
      */
     protected function addHealthCheckPlugins(Container $container): Container
     {

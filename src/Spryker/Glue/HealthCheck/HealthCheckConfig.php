@@ -5,13 +5,15 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Zed\HealthCheck;
+namespace Spryker\Glue\HealthCheck;
 
-use Spryker\Zed\Kernel\AbstractBundleConfig;
+use Spryker\Glue\Kernel\AbstractBundleConfig;
 
 /**
  * @method \Spryker\Shared\HealthCheck\HealthCheckConfig getSharedConfig()
  */
 class HealthCheckConfig extends AbstractBundleConfig
 {
+    public const RESOURCE_HEALTH_CHECK = 'health-check';
+    public const CONTROLLER_HEALTH_CHECK = 'health-check-resource';
 }

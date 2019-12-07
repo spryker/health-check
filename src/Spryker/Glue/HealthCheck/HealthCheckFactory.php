@@ -5,8 +5,13 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Zed\HealthCheck\Business;
+namespace Spryker\Glue\HealthCheck;
 
+use Spryker\Glue\HealthCheck\Processor\HealthCheck;
+use Spryker\Glue\HealthCheck\Processor\HealthCheckInterface;
+use Spryker\Glue\HealthCheck\Processor\Mapper\HealthCheckMapper;
+use Spryker\Glue\HealthCheck\Processor\Mapper\HealthCheckMapperInterface;
+use Spryker\Glue\Kernel\AbstractFactory;
 use Spryker\Service\HealthCheck\HealthCheckServiceInterface;
 use Spryker\Shared\HealthCheck\ChainFilter\ChainFilterInterface;
 use Spryker\Shared\HealthCheck\ChainFilter\Filter\ServiceNameFilter;
@@ -15,14 +20,24 @@ use Spryker\Shared\HealthCheck\Processor\HealthCheckProcessor;
 use Spryker\Shared\HealthCheck\Processor\HealthCheckProcessorInterface;
 use Spryker\Shared\HealthCheck\Validator\ServiceNameValidator;
 use Spryker\Shared\HealthCheck\Validator\ValidatorInterface;
-use Spryker\Zed\HealthCheck\HealthCheckDependencyProvider;
-use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 
 /**
- * @method \Spryker\Zed\HealthCheck\HealthCheckConfig getConfig()
+ * @method \Spryker\Glue\HealthCheck\HealthCheckConfig getConfig()
  */
-class HealthCheckBusinessFactory extends AbstractBusinessFactory
+class HealthCheckFactory extends AbstractFactory
 {
+    /**
+     * @return \Spryker\Glue\HealthCheck\Processor\HealthCheckInterface
+     */
+    public function createHealthChecker(): HealthCheckInterface
+    {
+        return new HealthCheck(
+            $this->getResourceBuilder(),
+            $this->createHealthCheckProcessor(),
+            $this->createHealthCheckMapper()
+        );
+    }
+
     /**
      * @return \Spryker\Shared\HealthCheck\Processor\HealthCheckProcessorInterface
      */
@@ -34,6 +49,14 @@ class HealthCheckBusinessFactory extends AbstractBusinessFactory
             $this->getHealthCheckService(),
             $this->getHealthCheckPlugins()
         );
+    }
+
+    /**
+     * @return \Spryker\Glue\HealthCheck\Processor\Mapper\HealthCheckMapperInterface
+     */
+    public function createHealthCheckMapper(): HealthCheckMapperInterface
+    {
+        return new HealthCheckMapper();
     }
 
     /**

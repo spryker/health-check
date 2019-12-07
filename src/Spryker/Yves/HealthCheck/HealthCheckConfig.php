@@ -5,9 +5,9 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Client\HealthCheck;
+namespace Spryker\Yves\HealthCheck;
 
-use Spryker\Client\Kernel\AbstractBundleConfig;
+use Spryker\Yves\Kernel\AbstractBundleConfig;
 
 class HealthCheckConfig extends AbstractBundleConfig
 {
