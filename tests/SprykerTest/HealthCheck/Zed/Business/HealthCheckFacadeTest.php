@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerTest\Zed\HealthCheck\Business;
+namespace SprykerTest\HealthCheck\Zed\Business;
 
 use Codeception\Test\Unit;
 use Generated\Shared\Transfer\HealthCheckResponseTransfer;
@@ -20,8 +20,8 @@ use Spryker\Zed\HealthCheck\HealthCheckDependencyProvider;
  * Auto-generated group annotations
  *
  * @group SprykerTest
- * @group Zed
  * @group HealthCheck
+ * @group Zed
  * @group Business
  * @group Facade
  * @group HealthCheckFacadeTest

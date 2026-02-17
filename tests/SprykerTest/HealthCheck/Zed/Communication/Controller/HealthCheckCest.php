@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerTest\HealthCheck\Communication\Controller;
+namespace SprykerTest\HealthCheck\Zed\Communication\Controller;
 
 use SprykerTest\Zed\HealthCheck\HealthCheckCommunicationTester;
 use SprykerTest\Zed\HealthCheck\PageObject\HealthCheckPage;
@@ -15,6 +15,7 @@ use SprykerTest\Zed\HealthCheck\PageObject\HealthCheckPage;
  *
  * @group SprykerTest
  * @group HealthCheck
+ * @group Zed
  * @group Communication
  * @group Controller
  * @group HealthCheckCest

@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerTest\Zed\HealthCheck;
+namespace SprykerTest\HealthCheck\Zed;
 
 use Codeception\Actor;
 use Spryker\Shared\HealthCheck\HealthCheckConstants;
