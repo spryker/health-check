@@ -5,10 +5,9 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerTest\HealthCheck\Zed;
+namespace SprykerTest\Zed\HealthCheck;
 
 use Codeception\Actor;
-use Spryker\Shared\HealthCheck\HealthCheckConstants;
 
 /**
  * @method void wantToTest($text)
@@ -21,26 +20,11 @@ use Spryker\Shared\HealthCheck\HealthCheckConstants;
  * @method void lookForwardTo($achieveValue)
  * @method void comment($description)
  * @method void pause()
+ * @method \Spryker\Zed\HealthCheck\Business\HealthCheckFacadeInterface getFacade()
  *
  * @SuppressWarnings(PHPMD)
  */
-class HealthCheckCommunicationTester extends Actor
+class HealthCheckBusinessTester extends Actor
 {
-    use _generated\HealthCheckCommunicationTesterActions;
-
-    /**
-     * @return void
-     */
-    public function enableHealthCheckEndpoints(): void
-    {
-        $this->setConfig(HealthCheckConstants::HEALTH_CHECK_ENABLED, true);
-    }
-
-    /**
-     * @return void
-     */
-    public function disableHealthCheckEndpoints(): void
-    {
-        $this->setConfig(HealthCheckConstants::HEALTH_CHECK_ENABLED, false);
-    }
+    use _generated\HealthCheckBusinessTesterActions;
 }

@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerTest\HealthCheck\Zed\PageObject;
+namespace SprykerTest\Zed\HealthCheck\PageObject;
 
 class HealthCheckPage
 {
