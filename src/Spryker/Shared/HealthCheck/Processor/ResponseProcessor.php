@@ -45,9 +45,6 @@ class ResponseProcessor implements ResponseProcessorInterface
      */
     protected $isHealthCheckEnabled;
 
-    /**
-     * @param bool $isHealthCheckEnabled
-     */
     public function __construct(bool $isHealthCheckEnabled)
     {
         $this->isHealthCheckEnabled = $isHealthCheckEnabled;
@@ -70,9 +67,6 @@ class ResponseProcessor implements ResponseProcessorInterface
         return $healthCheckResponseTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\HealthCheckResponseTransfer
-     */
     public function processNonExistingServiceName(): HealthCheckResponseTransfer
     {
         return (new HealthCheckResponseTransfer())
@@ -98,11 +92,6 @@ class ResponseProcessor implements ResponseProcessorInterface
         return $healthCheckResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\HealthCheckResponseTransfer $healthCheckResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\HealthCheckResponseTransfer
-     */
     protected function processSystemStatus(
         HealthCheckResponseTransfer $healthCheckResponseTransfer
     ): HealthCheckResponseTransfer {
@@ -115,9 +104,6 @@ class ResponseProcessor implements ResponseProcessorInterface
         return $healthCheckResponseTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\HealthCheckResponseTransfer
-     */
     protected function createForbiddenHealthCheckResponseTransfer(): HealthCheckResponseTransfer
     {
         return (new HealthCheckResponseTransfer())
@@ -125,11 +111,6 @@ class ResponseProcessor implements ResponseProcessorInterface
             ->setMessage(static::HEALTH_CHECK_FORBIDDEN_STATUS_MESSAGE);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\HealthCheckResponseTransfer $healthCheckResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\HealthCheckResponseTransfer
-     */
     protected function updateHealthCheckResponseTransferWithUnavailableHealthCheckStatus(
         HealthCheckResponseTransfer $healthCheckResponseTransfer
     ): HealthCheckResponseTransfer {

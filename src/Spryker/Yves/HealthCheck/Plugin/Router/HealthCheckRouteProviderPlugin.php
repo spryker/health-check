@@ -34,11 +34,6 @@ class HealthCheckRouteProviderPlugin extends AbstractRouteProviderPlugin
         return $routeCollection;
     }
 
-    /**
-     * @param \Spryker\Yves\Router\Route\RouteCollection $routeCollection
-     *
-     * @return \Spryker\Yves\Router\Route\RouteCollection
-     */
     protected function addHealthCheckRoute(RouteCollection $routeCollection): RouteCollection
     {
         $route = $this->buildRoute('/health-check', 'HealthCheck', 'Index', 'indexAction');

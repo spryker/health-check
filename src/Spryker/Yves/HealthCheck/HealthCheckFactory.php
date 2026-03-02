@@ -24,9 +24,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
  */
 class HealthCheckFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Shared\HealthCheck\Processor\HealthCheckProcessorInterface
-     */
     public function createHealthCheckProcessor(): HealthCheckProcessorInterface
     {
         return new HealthCheckProcessor(
@@ -37,17 +34,11 @@ class HealthCheckFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Shared\HealthCheck\Validator\ValidatorInterface
-     */
     public function createServiceNameValidator(): ValidatorInterface
     {
         return new ServiceNameValidator();
     }
 
-    /**
-     * @return \Spryker\Shared\HealthCheck\ChainFilter\ChainFilterInterface
-     */
     public function createServiceChainFilter(): ChainFilterInterface
     {
         $chainFilter = new ServiceChainFilter();
@@ -57,17 +48,11 @@ class HealthCheckFactory extends AbstractFactory
         return $chainFilter;
     }
 
-    /**
-     * @return \Spryker\Shared\HealthCheck\ChainFilter\FilterInterface
-     */
     public function createServiceNameFilter(): FilterInterface
     {
         return new ServiceNameFilter();
     }
 
-    /**
-     * @return \Spryker\Shared\HealthCheck\Processor\ResponseProcessorInterface
-     */
     public function createResponseProcessor(): ResponseProcessorInterface
     {
         return new ResponseProcessor(

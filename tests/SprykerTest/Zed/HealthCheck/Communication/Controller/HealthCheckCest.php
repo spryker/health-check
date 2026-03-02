@@ -23,11 +23,6 @@ use SprykerTest\Zed\HealthCheck\PageObject\HealthCheckPage;
  */
 class HealthCheckCest
 {
-    /**
-     * @param \SprykerTest\Zed\HealthCheck\HealthCheckCommunicationTester $i
-     *
-     * @return void
-     */
     public function testForbiddenHealthCheckStatusResponse(HealthCheckCommunicationTester $i): void
     {
         $i->disableHealthCheckEndpoints();
@@ -35,11 +30,6 @@ class HealthCheckCest
         $i->seeResponseCodeIs(403);
     }
 
-    /**
-     * @param \SprykerTest\Zed\HealthCheck\HealthCheckCommunicationTester $i
-     *
-     * @return void
-     */
     public function testSuccessHealthCheckStatusResponse(HealthCheckCommunicationTester $i): void
     {
         $i->enableHealthCheckEndpoints();
@@ -47,11 +37,6 @@ class HealthCheckCest
         $i->seeResponseCodeIs(200);
     }
 
-    /**
-     * @param \SprykerTest\Zed\HealthCheck\HealthCheckCommunicationTester $i
-     *
-     * @return void
-     */
     public function testSuccessHealthCheckStatusResponseForWithFilter(HealthCheckCommunicationTester $i): void
     {
         $i->enableHealthCheckEndpoints();

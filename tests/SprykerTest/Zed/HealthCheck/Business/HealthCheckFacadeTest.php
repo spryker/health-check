@@ -59,9 +59,6 @@ class HealthCheckFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -69,9 +66,6 @@ class HealthCheckFacadeTest extends Unit
         $this->tester->setConfig(HealthCheckConstants::HEALTH_CHECK_ENABLED, true);
     }
 
-    /**
-     * @return void
-     */
     public function testProcessedHealthCheckServicesWithEmptyRequestAndSuccessResponse(): void
     {
         // Arrange
@@ -93,9 +87,6 @@ class HealthCheckFacadeTest extends Unit
         $this->assertSame(ResponseProcessor::HEALTH_CHECK_SUCCESS_STATUS_CODE, $healthCheckResponseTransfer->getStatusCode());
     }
 
-    /**
-     * @return void
-     */
     public function testProcessedHealthCheckServicesWithEmptyRequestAndFailedResponse(): void
     {
         // Arrange
@@ -116,9 +107,6 @@ class HealthCheckFacadeTest extends Unit
         $this->assertSame(ResponseProcessor::HEALTH_CHECK_UNAVAILABLE_STATUS_CODE, $healthCheckResponseTransfer->getStatusCode());
     }
 
-    /**
-     * @return void
-     */
     public function testProcessedHealthCheckServicesWithEmptyRequestAndAnyFailedResponse(): void
     {
         // Arrange
@@ -139,9 +127,6 @@ class HealthCheckFacadeTest extends Unit
         $this->assertSame(ResponseProcessor::HEALTH_CHECK_UNAVAILABLE_STATUS_CODE, $healthCheckResponseTransfer->getStatusCode());
     }
 
-    /**
-     * @return void
-     */
     public function testProcessedHealthCheckServicesWithNotEnabledServices(): void
     {
         // Arrange
@@ -156,9 +141,6 @@ class HealthCheckFacadeTest extends Unit
         $this->assertSame(ResponseProcessor::HEALTH_CHECK_SUCCESS_STATUS_CODE, $healthCheckResponseTransfer->getStatusCode());
     }
 
-    /**
-     * @return void
-     */
     public function testProcessedHealthCheckServicesWithRequestedServiceResponse(): void
     {
         // Arrange
@@ -181,9 +163,6 @@ class HealthCheckFacadeTest extends Unit
         $this->assertSame(ResponseProcessor::HEALTH_CHECK_SUCCESS_STATUS_CODE, $healthCheckResponseTransfer->getStatusCode());
     }
 
-    /**
-     * @return void
-     */
     public function testProcessedHealthCheckServicesWithRequestedNotExistingService(): void
     {
         // Arrange
@@ -206,9 +185,6 @@ class HealthCheckFacadeTest extends Unit
         $this->assertSame(ResponseProcessor::HEALTH_CHECK_BAD_REQUEST_STATUS_CODE, $healthCheckResponseTransfer->getStatusCode());
     }
 
-    /**
-     * @return void
-     */
     public function testProcessedHealthCheckServicesWithDisabledHealthCheck(): void
     {
         // Arrange
@@ -273,12 +249,6 @@ class HealthCheckFacadeTest extends Unit
         return $healthCheckPluginMock;
     }
 
-    /**
-     * @param string $serviceName
-     * @param bool $serviceStatus
-     *
-     * @return \Generated\Shared\Transfer\HealthCheckServiceResponseTransfer
-     */
     protected function createHealthCheckServiceResponseTransfer(string $serviceName, bool $serviceStatus): HealthCheckServiceResponseTransfer
     {
         return (new HealthCheckServiceResponseTransfer())
@@ -286,9 +256,6 @@ class HealthCheckFacadeTest extends Unit
             ->setStatus($serviceStatus);
     }
 
-    /**
-     * @return \Spryker\Shared\HealthCheck\HealthCheckConfig
-     */
     protected function getConfig(): HealthCheckConfig
     {
         return new HealthCheckConfig();

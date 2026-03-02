@@ -37,11 +37,6 @@ class HealthCheck implements HealthCheckInterface
      */
     protected $healthCheckMapper;
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface $restResourceBuilder
-     * @param \Spryker\Shared\HealthCheck\Processor\HealthCheckProcessorInterface $healthCheckProcessor
-     * @param \Spryker\Glue\HealthCheck\Processor\Mapper\HealthCheckMapperInterface $healthCheckMapper
-     */
     public function __construct(
         RestResourceBuilderInterface $restResourceBuilder,
         HealthCheckProcessorInterface $healthCheckProcessor,
@@ -52,11 +47,6 @@ class HealthCheck implements HealthCheckInterface
         $this->healthCheckMapper = $healthCheckMapper;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function processHealthCheck(RestRequestInterface $restRequest): RestResponseInterface
     {
         $restResponse = $this->restResourceBuilder->createRestResponse();

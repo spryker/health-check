@@ -52,11 +52,6 @@ class HealthCheckProcessor implements HealthCheckProcessorInterface
         $this->healthCheckPlugins = $healthCheckPlugins;
     }
 
-    /**
-     * @param string|null $requestedServices
-     *
-     * @return \Generated\Shared\Transfer\HealthCheckResponseTransfer
-     */
     public function process(?string $requestedServices = null): HealthCheckResponseTransfer
     {
         $healthCheckRequestTransfer = $this->createHealthCheckRequestTransfer($requestedServices);
@@ -72,11 +67,6 @@ class HealthCheckProcessor implements HealthCheckProcessorInterface
         return $healthCheckResponseTransfer;
     }
 
-    /**
-     * @param string|null $requestedServices
-     *
-     * @return \Generated\Shared\Transfer\HealthCheckRequestTransfer
-     */
     protected function createHealthCheckRequestTransfer(?string $requestedServices = null): HealthCheckRequestTransfer
     {
         $healthCheckRequestTransfer = new HealthCheckRequestTransfer();

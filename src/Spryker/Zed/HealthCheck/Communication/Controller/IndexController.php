@@ -22,11 +22,6 @@ class IndexController extends AbstractController
      */
     protected const KEY_HEALTH_CHECK_SERVICES = 'services';
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function indexAction(Request $request): JsonResponse
     {
         $requestedServices = $request->query->get(static::KEY_HEALTH_CHECK_SERVICES);

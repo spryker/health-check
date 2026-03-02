@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\RestHealthCheckResponseAttributesTransfer;
 
 class HealthCheckMapper implements HealthCheckMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\HealthCheckResponseTransfer $healthCheckResponseTransfer
-     * @param \Generated\Shared\Transfer\RestHealthCheckResponseAttributesTransfer $restHealthCheckResponseAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestHealthCheckResponseAttributesTransfer
-     */
     public function mapHealthCheckServiceResponseTransferToRestHealthCheckResponseAttributesTransfer(
         HealthCheckResponseTransfer $healthCheckResponseTransfer,
         RestHealthCheckResponseAttributesTransfer $restHealthCheckResponseAttributesTransfer

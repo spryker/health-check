@@ -20,11 +20,6 @@ class HealthCheckDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const PLUGINS_HEALTH_CHECK = 'PLUGINS_HEALTH_CHECK';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = $this->addHealthCheckPlugins($container);
@@ -32,11 +27,6 @@ class HealthCheckDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addHealthCheckPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_HEALTH_CHECK, function (Container $container) {

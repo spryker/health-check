@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\HealthCheckResponseTransfer;
 
 interface HealthCheckProcessorInterface
 {
-    /**
-     * @param string|null $requestedServices
-     *
-     * @return \Generated\Shared\Transfer\HealthCheckResponseTransfer
-     */
     public function process(?string $requestedServices = null): HealthCheckResponseTransfer;
 }
