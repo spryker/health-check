@@ -12,6 +12,7 @@
         "spryker/symfony": "^3.0.0"
     },
     "require-dev": {
+        "spryker/api-platform": "*",
         "spryker/application": "*",
         "spryker/code-sniffer": "*",
         "spryker/container": "*",
@@ -20,6 +21,7 @@
         "spryker/testify": "*"
     },
     "suggest": {
+        "spryker/api-platform": "Required to expose API Platform resources.",
         "spryker/router": "Use this module when you want to use the Router."
     },
     "autoload": {

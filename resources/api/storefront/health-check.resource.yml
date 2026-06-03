@@ -1,0 +1,78 @@
+resource:
+    name: HealthCheck
+    shortName: health-check
+    description: 'Reports the aggregate health of registered services. Status is reflected by HTTP code: 200 healthy, 503 unhealthy, 400 bad service name in `?services`, 403 health check disabled. The response body shape is identical for all four cases.'
+
+    provider: Spryker\Glue\HealthCheck\Api\Storefront\Provider\HealthCheckStorefrontProvider
+    paginationEnabled: false
+
+    operations:
+        - type: Get
+          uriTemplate: '/health-check'
+          description: 'Aggregate health of registered services. Optional `?services=name1,name2` filter narrows the report to a subset.'
+          normalizationContext:
+              gen_id: false
+          openapiContext:
+              parameters:
+                  - name: 'services'
+                    in: 'query'
+                    required: false
+                    description: 'Comma-separated list of service names to check. When omitted, all registered services are checked.'
+                    schema:
+                        type: string
+                    example: 'storage,search'
+              responses:
+                  200:
+                      description: 'All checked services are healthy.'
+                  400:
+                      description: 'One or more requested service names are unknown.'
+                  403:
+                      description: 'Health check is disabled by configuration.'
+                  503:
+                      description: 'One or more checked services are unhealthy.'
+
+    properties:
+        status:
+            type: string
+            nullable: true
+            writable: false
+            readable: true
+            required: false
+            description: 'Overall status indicator: `healthy` or `unhealthy`. Empty for the 400/403 cases.'
+            openapiContext:
+                example: 'healthy'
+
+        statusCode:
+            type: integer
+            nullable: true
+            writable: false
+            readable: true
+            required: false
+            description: 'HTTP status code mirrored into the body: 200, 400, 403 or 503.'
+            openapiContext:
+                example: 200
+
+        message:
+            type: string
+            nullable: true
+            writable: false
+            readable: true
+            required: false
+            description: 'Human-readable explanation for non-healthy cases (e.g. `Requested services not found.`). Empty when status is `healthy`.'
+            openapiContext:
+                example: 'Requested services not found.'
+
+        healthCheckServiceResponses:
+            type: array
+            writable: false
+            readable: true
+            required: false
+            description: 'Per-service results: name, boolean status, optional message. Empty for the 400/403 cases.'
+            openapiContext:
+                example:
+                    - name: 'storage'
+                      status: true
+                      message: ''
+                    - name: 'search'
+                      status: true
+                      message: ''
