@@ -7,7 +7,7 @@ resource:
     paginationEnabled: false
 
     operations:
-        - type: Get
+        - type: GetCollection
           uriTemplate: '/health-check'
           description: 'Aggregate health of registered services. Optional `?services=name1,name2` filter narrows the report to a subset.'
           normalizationContext:

@@ -37,7 +37,14 @@ class HealthCheckStorefrontProvider extends AbstractStorefrontProvider
     ) {
     }
 
-    protected function provideItem(): ?object
+    /**
+     * The legacy `/health-check` endpoint returns a JSON:API collection (`data` is an array) even
+     * though it always reports exactly one health-check resource. The migration keeps that contract,
+     * so this is a `GetCollection` operation returning a single-element array rather than an item.
+     *
+     * @return array<\Generated\Api\Storefront\HealthCheckStorefrontResource>
+     */
+    protected function provideCollection(): array
     {
         $requestedServices = $this->getRequest()->query->get(static::QUERY_PARAMETER_SERVICES);
 
@@ -50,9 +57,11 @@ class HealthCheckStorefrontProvider extends AbstractStorefrontProvider
             (int)$healthCheckResponseTransfer->getStatusCode(),
         );
 
-        return $this->serializer->denormalize(
-            $healthCheckResponseTransfer->toArray(true, true),
-            HealthCheckStorefrontResource::class,
-        );
+        return [
+            $this->serializer->denormalize(
+                $healthCheckResponseTransfer->toArray(true, true),
+                HealthCheckStorefrontResource::class,
+            ),
+        ];
     }
 }
