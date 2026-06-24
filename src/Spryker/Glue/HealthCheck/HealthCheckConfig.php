@@ -15,11 +15,15 @@ use Spryker\Glue\Kernel\AbstractBundleConfig;
 class HealthCheckConfig extends AbstractBundleConfig
 {
     /**
+     * @api
+     *
      * @var string
      */
     public const RESOURCE_HEALTH_CHECK = 'health-check';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const CONTROLLER_HEALTH_CHECK = 'health-check-resource';
