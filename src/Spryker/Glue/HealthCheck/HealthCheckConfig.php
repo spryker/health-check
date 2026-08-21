@@ -30,8 +30,6 @@ class HealthCheckConfig extends AbstractBundleConfig
 
     /**
      * @api
-     *
-     * @return bool
      */
     public function isHealthCheckEnabled(): bool
     {

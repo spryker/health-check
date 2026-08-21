@@ -16,10 +16,6 @@ interface HealthCheckFacadeInterface
      * - Performs health checks based on plugin stack.
      *
      * @api
-     *
-     * @param string|null $requestedServices
-     *
-     * @return \Generated\Shared\Transfer\HealthCheckResponseTransfer
      */
     public function executeHealthCheck(?string $requestedServices = null): HealthCheckResponseTransfer;
 }

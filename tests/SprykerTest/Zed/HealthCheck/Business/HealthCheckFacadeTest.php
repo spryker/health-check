@@ -208,10 +208,6 @@ class HealthCheckFacadeTest extends Unit
     }
 
     /**
-     * @param bool $isDatabaseServiceHealthy
-     * @param bool $isServiceServiceHealthy
-     * @param bool $isStorageServiceHealthy
-     *
      * @return array<\PHPUnit\Framework\MockObject\MockObject|\Spryker\Shared\HealthCheckExtension\Dependency\Plugin\HealthCheckPluginInterface>
      */
     protected function getHealthCheckPlugins(
@@ -227,9 +223,6 @@ class HealthCheckFacadeTest extends Unit
     }
 
     /**
-     * @param string $serviceName
-     * @param bool $serviceStatus
-     *
      * @return \PHPUnit\Framework\MockObject\MockObject|\Spryker\Shared\HealthCheckExtension\Dependency\Plugin\HealthCheckPluginInterface
      */
     protected function getHealthCheckPluginMock(string $serviceName, bool $serviceStatus): HealthCheckPluginInterface

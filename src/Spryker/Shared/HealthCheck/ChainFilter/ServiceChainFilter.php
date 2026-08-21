@@ -17,8 +17,6 @@ class ServiceChainFilter implements ChainFilterInterface, ChainFilterAddInterfac
     protected $filters = [];
 
     /**
-     * @param \Spryker\Shared\HealthCheck\ChainFilter\FilterInterface $filter
-     *
      * @return $this
      */
     public function addFilter(FilterInterface $filter)
@@ -30,7 +28,6 @@ class ServiceChainFilter implements ChainFilterInterface, ChainFilterAddInterfac
 
     /**
      * @param array<\Spryker\Shared\HealthCheckExtension\Dependency\Plugin\HealthCheckPluginInterface> $healthCheckPlugins
-     * @param \Generated\Shared\Transfer\HealthCheckRequestTransfer $healthCheckRequestTransfer
      *
      * @return array<\Spryker\Shared\HealthCheckExtension\Dependency\Plugin\HealthCheckPluginInterface>
      */

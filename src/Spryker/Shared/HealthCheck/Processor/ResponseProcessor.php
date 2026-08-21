@@ -52,8 +52,6 @@ class ResponseProcessor implements ResponseProcessorInterface
 
     /**
      * @param array<\Generated\Shared\Transfer\HealthCheckServiceResponseTransfer> $healthCheckServiceResponseTransfers
-     *
-     * @return \Generated\Shared\Transfer\HealthCheckResponseTransfer
      */
     public function processOutput(array $healthCheckServiceResponseTransfers): HealthCheckResponseTransfer
     {
@@ -76,8 +74,6 @@ class ResponseProcessor implements ResponseProcessorInterface
 
     /**
      * @param array<\Generated\Shared\Transfer\HealthCheckServiceResponseTransfer> $healthCheckServiceResponseTransfers
-     *
-     * @return \Generated\Shared\Transfer\HealthCheckResponseTransfer
      */
     protected function createHealthCheckResponseTransfer(array $healthCheckServiceResponseTransfers): HealthCheckResponseTransfer
     {

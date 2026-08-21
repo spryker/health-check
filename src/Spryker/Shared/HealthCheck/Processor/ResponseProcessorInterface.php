@@ -13,8 +13,6 @@ interface ResponseProcessorInterface
 {
     /**
      * @param array<\Generated\Shared\Transfer\HealthCheckServiceResponseTransfer> $healthCheckServiceResponseTransfers
-     *
-     * @return \Generated\Shared\Transfer\HealthCheckResponseTransfer
      */
     public function processOutput(array $healthCheckServiceResponseTransfers): HealthCheckResponseTransfer;
 

@@ -13,9 +13,6 @@ class ServiceNameValidator implements ValidatorInterface
 {
     /**
      * @param array<\Spryker\Shared\HealthCheckExtension\Dependency\Plugin\HealthCheckPluginInterface> $healthCheckPlugins
-     * @param \Generated\Shared\Transfer\HealthCheckRequestTransfer $healthCheckRequestTransfer
-     *
-     * @return bool
      */
     public function validate(array $healthCheckPlugins, HealthCheckRequestTransfer $healthCheckRequestTransfer): bool
     {
