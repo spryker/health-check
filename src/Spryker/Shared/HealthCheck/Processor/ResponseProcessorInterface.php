@@ -17,4 +17,8 @@ interface ResponseProcessorInterface
     public function processOutput(array $healthCheckServiceResponseTransfers): HealthCheckResponseTransfer;
 
     public function processNonExistingServiceName(): HealthCheckResponseTransfer;
+
+    public function isHealthCheckEnabled(): bool;
+
+    public function processDisabled(): HealthCheckResponseTransfer;
 }

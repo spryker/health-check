@@ -58,6 +58,12 @@ class HealthCheckProcessor implements HealthCheckProcessorInterface
             return $this->responseProcessor->processNonExistingServiceName();
         }
 
+        // The plugins open connections to Redis, Elasticsearch and Zed. Running them while health
+        // checks are disabled costs those round trips for a response that is discarded for a 403.
+        if ($this->responseProcessor->isHealthCheckEnabled() === false) {
+            return $this->responseProcessor->processDisabled();
+        }
+
         $filteredHealthCheckPlugins = $this->chainFilter->filter($this->healthCheckPlugins, $healthCheckRequestTransfer);
         $healthCheckResponseTransfer = $this->processFilteredHealthCheckPlugins($filteredHealthCheckPlugins);
 

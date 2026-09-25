@@ -65,6 +65,16 @@ class ResponseProcessor implements ResponseProcessorInterface
         return $healthCheckResponseTransfer;
     }
 
+    public function isHealthCheckEnabled(): bool
+    {
+        return $this->isHealthCheckEnabled;
+    }
+
+    public function processDisabled(): HealthCheckResponseTransfer
+    {
+        return $this->createForbiddenHealthCheckResponseTransfer();
+    }
+
     public function processNonExistingServiceName(): HealthCheckResponseTransfer
     {
         return (new HealthCheckResponseTransfer())
