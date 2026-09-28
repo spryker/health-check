@@ -58,7 +58,8 @@ resource:
             writable: false
             readable: true
             required: false
-            description: 'Human-readable explanation for non-healthy cases (e.g. `Requested services not found.`). Empty when status is `healthy`.'
+            responseOptional: true
+            description: 'Human-readable explanation for non-healthy cases (e.g. `Requested services not found.`). Empty when status is `healthy`, which is the response the operation answers when every service is up.'
             openapiContext:
                 example: 'Requested services not found.'
 
