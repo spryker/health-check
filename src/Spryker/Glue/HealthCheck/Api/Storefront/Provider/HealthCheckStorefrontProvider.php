@@ -27,9 +27,11 @@ class HealthCheckStorefrontProvider extends AbstractStorefrontProvider
 
     /**
      * Request attribute that carries the HTTP status code derived from the processor's response,
-     * picked up by {@see HealthCheckResponseStatusSubscriber} on `kernel.response`.
+     * picked up by {@see HealthCheckResponseStatusSubscriber} on `kernel.response` and by the MCP tool of the operation.
+     *
+     * @uses \Spryker\ApiPlatform\Request\RequestAttribute::RESPONSE_STATUS_CODE
      */
-    public const string REQUEST_ATTRIBUTE_HEALTH_CHECK_STATUS_CODE = '_spryker_health_check_status_code';
+    public const string REQUEST_ATTRIBUTE_HEALTH_CHECK_STATUS_CODE = '_spryker_response_status_code';
 
     public function __construct(
         protected SerializerServiceInterface $serializer,

@@ -12,6 +12,14 @@ resource:
           description: 'Aggregate health of registered services. Optional `?services=name1,name2` filter narrows the report to a subset.'
           normalizationContext:
               gen_id: false
+          mcp:
+              name: health-check
+              title: 'Health check'
+              description: 'Reports the health of the registered shop services, like the Storefront API GET /health-check resource. The result has the items of the REST response. statusCode is 200 when all checked services are healthy, 503 when one is unhealthy, 400 for an unknown service name and 403 when the health check is disabled. isError is true for every statusCode from 400.'
+              annotations:
+                  readOnlyHint: true
+                  idempotentHint: true
+                  openWorldHint: false
           openapiContext:
               parameters:
                   - name: 'services'
